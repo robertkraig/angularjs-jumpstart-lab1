@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="//cdn.jsdelivr.net/underscorejs/1.5.1/underscore-min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body ng-app="MovieTalk" ng-controller="MovieCtrl">
+    <div class="container">
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" ng-model="searchTerm" placeholder="Movie Title" />
+            </div>
+            <button ng-click="search(searchTerm)" class="btn btn-primary">Search</button>
+        </form>
+        <div class="row movie-list-item" ng-repeat="movie in movies">
+            <div class="col-xs-2">
+                <img ng-src="{{movie.posters.thumbnail}}" />
+            </div>
+            <div class="col-xs-6 movieTitle">{{movie.title}}</div>
+        </div>
+    </div>
+</body>
+</html>
